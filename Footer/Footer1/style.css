@@ -1,0 +1,159 @@
+
+/* *************** Footer *************** */
+
+.footer-section {
+    background-color: #212428;
+    /* #212428 */
+    /* #020031 */
+    background-image: url(footer1.png);
+    background-repeat: no-repeat;
+    background-position: center 75px;
+}
+
+.footer-top {
+    padding: 65px 15px;
+}
+
+.copyright {
+    border-top: 1px solid #312f56;
+    padding: 27px 0;
+    text-align: center;
+}
+
+.copyright p {
+    color: #b7b7b7;
+    margin-bottom: 0;
+}
+
+.copyright p a {
+    color: #fff;
+    font-weight: 500;
+}
+
+.copyright p a:hover {
+    color: #f6783a;
+}
+
+.fw-title {
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 25px;
+    padding-top: 10px;
+}
+
+.footer-widget p,
+.footer-widget span {
+    color: #b7b7b7;
+}
+
+.footer-widget ul {
+    list-style: none;
+}
+
+.about-widget img {
+    margin-bottom: 30px;
+}
+
+.about-widget p {
+    margin-bottom: 35px;
+}
+
+.social a {
+    color: #b7b7b7;
+    ;
+    margin-right: 15px;
+}
+
+.dobule-link ul {
+    display: inline-block;
+}
+
+.dobule-link ul a {
+    display: block;
+    font-size: 14px;
+    color: #b7b7b7;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.dobule-link ul a:hover {
+    color: #f6783a;
+    text-decoration: none;
+}
+
+.dobule-link ul li:last-child a {
+    margin-bottom: 0;
+}
+
+.dobule-link ul:last-child {
+    margin-left: 50px;
+}
+
+.recent-admin li {
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+
+.recent-admin p {
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.recent-admin span {
+    font-size: 12px;
+}
+
+.recent-admin span i {
+    color: #f6783a;
+    margin-right: 5px;
+}
+
+.recent-admin a {
+    text-decoration: none;
+    color: #b7b7b7;
+}
+
+.recent-admin a:hover {
+    text-decoration: none;
+    color: #f6783a;
+}
+
+.contact li {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.contact li p {
+    margin-bottom: 0;
+    text-decoration: none !important;
+}
+
+.contact i {
+    font-size: 12px
+}
+
+.contact p {
+    text-decoration: none !important;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #b7b7b7;
+}
+
+.contact a:hover {
+    text-decoration: none;
+    color: #f6783a;
+}
+
+
+.contact_box_mesazhi {
+    max-width: 1250px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.70);
+}
