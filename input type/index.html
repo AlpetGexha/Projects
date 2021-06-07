@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>Enter Identity No.:</td>
+            <td><input type="text" name="nic" id="nic" placeholder="00000-0000000-0"></td>
+        </tr>
+        <tr>
+            <td>Enter Date:</td>
+            <td><input type="text" name="date" id="date" placeholder="MM/DD/YYYY"></td>
+        </tr>
+        <tr>
+            <td>Enter Phone:</td>
+            <td><input type="text" name="phone" id="phone" placeholder="(000) 000-000"></td>
+        </tr>
+        <tr>
+            <td>Enter Phone Ext:</td>
+            <td><input type="text" name="ext" id="ext" placeholder="(000) 000-000 Ext.00000"></td>
+        </tr>
+        <tr>
+            <td>Enter Mobile:</td>
+            <td><input type="text" name="mobile" id="mobile" placeholder="+92 000 000 000"></td>
+        </tr>
+        <tr>
+            <td>Enter Percentage:</td>
+            <td><input type="text" name="percent" id="percent" placeholder="00%"></td>
+        </tr>
+        <tr>
+            <td>Enter Product Key:</td>
+            <td><input type="text" name="productkey" id="productkey" placeholder="a*-000-a000"></td>
+        </tr>
+        <tr>
+            <td>Enter Order No:</td>
+            <td><input type="text" name="orderno" id="orderno" placeholder="PO: aaa-000-***"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><strong>Additional Features</strong></td>
+        </tr>
+        <tr>
+            <td>Date Without AutoClear:</td>
+            <td><input type="text" name="date2" id="date2" placeholder="MM/DD/YYYY"></td>
+        </tr>
+        <tr>
+            <td>Date Without AutoClear & Alert:</td>
+            <td><input type="text" name="date3" id="date3" placeholder="MM/DD/YYYY"></td>
+        </tr>
+        <tr>
+            <td>Mobile With Prefix:</td>
+            <td><input type="text" name="mobile2" id="mobile2" placeholder="+1 000 000 000"></td>
+        </tr>
+    </table>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
+    <script>
+        jQuery(function ($) {
+            $("#nic").mask("99999-9999999-9");
+            $("#date").mask("99/99/9999");
+            $("#phone").mask("(999) 999-9999");
+            $("#ext").mask("(999) 999-9999? Ext.99999");
+            $("#mobile").mask("+99 999 999 999");
+            $("#percent").mask("99%");
+            $("#productkey").mask("a*-999-a999");
+            $("#orderno").mask("PO: aaa-999-***");
+            $("#date2").mask("99/99/9999", {
+                autoclear: false
+            });
+            $("#date3").mask("99/99/9999", {
+                autoclear: false,
+                completed: function () {
+                    alert("Completed!");
+                }
+            });
+            $("#mobile2").mask("+1 999 999 999");
+        });
+    </script>
+</body>
+
+</html>
