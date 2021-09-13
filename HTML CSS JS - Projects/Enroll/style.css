@@ -1,0 +1,75 @@
+
+/* *************** Enroll-list-item *************** */
+*{
+    margin: 0;
+    color: black;
+}
+img {
+    max-width: 100%;
+}
+
+.courses-section .container {
+    margin-bottom: -50px;
+}
+
+.spad {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.section-title {
+    margin-bottom: 70px;
+}
+
+.section-title h3 {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    margin-bottom: 0;
+}
+
+.enroll-list-item {
+    padding-left: 70px;
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 10px
+}
+
+.enroll-list-item span {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    border-radius: 50px;
+    background: #722600;
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 10px
+}
+
+.enroll-list-item h5 {
+    font-weight: 400;
+    margin-bottom: 10px
+}
+
+.enroll-list-item:after {
+    position: absolute;
+    content: '';
+    height: calc(100% - 45px);
+    left: 20px;
+    top: 48px;
+    border-left: 1px dashed #6c6e70
+}
+
+.enroll-list-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0
+}
+
+.enroll-list-item:last-child:after {
+    display: none
+}
