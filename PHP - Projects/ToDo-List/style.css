@@ -1,0 +1,24 @@
+body {
+    background-color: #202424;
+}
+
+input {
+
+    color: #bebebe;
+    background-color: #202020;
+    border-color: #404040;
+
+}
+
+.form-control {
+    color: #bebebe;
+    background-color: #171717;
+    border-color: #404040;
+}
+
+.form-control,
+.form-control:focus {
+    color: #fff;
+    background-color: #171717;
+    border-color: #404040;
+}
