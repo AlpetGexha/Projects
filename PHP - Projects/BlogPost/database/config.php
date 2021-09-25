@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_TIME, array('al_AL.UTF-8', 'al_AL@euro', 'al_AL', 'Albanian'));
 
 class DB
 {

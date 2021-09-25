@@ -20,6 +20,7 @@ spl_autoload_register(function ($class_name) {
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="assets/css/hashtag.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Amsify Plugin -->
@@ -34,7 +35,7 @@ spl_autoload_register(function ($class_name) {
 
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">AlpetG</a>
+            <a class="navbar-brand" href="index.php">AlpetG </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,6 +47,7 @@ spl_autoload_register(function ($class_name) {
                     <li class="nav-item">
                         <a class="nav-link" href="addpost.php">Shtopostime</a>
                     </li>
+
                 </ul>
                 <form method="GET" action="#" class="d-flex justify-content-end ml-auto">
                     <input class="form-control me-2" id="search" type="search" placeholder="Kërkoni" name="postSerch" required="" oninvalid="this.setCustomValidity('Shruani për të kërkuar');" oninput="this.setCustomValidity('');">

@@ -24,6 +24,7 @@ a {
     color: #198754;
     overflow: hidden;
 }
+
 a:hover {
     color: #1a5037;
     overflow: hidden;
@@ -72,4 +73,34 @@ input {
 
 .page-item:not(.active) .page-link:hover {
     background-color: #242424;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #8d8d8d
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
