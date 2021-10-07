@@ -3,8 +3,8 @@ import time
 
 text = input("shkruani fjalin e spamit: ")
 
-time.sleep(0.000002)
+time.sleep(2.5)
 while True:
     auto.write(text)
     auto.press('enter')
-    time.sleep(0.000001)
+    time.sleep(2.3)
