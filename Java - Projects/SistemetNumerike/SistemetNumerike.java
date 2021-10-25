@@ -5,175 +5,197 @@ import java.util.Scanner;
 public class SistemetNumerike {
     public static void shfaqOpsionet() {
 
-        System.out.println("\n>\n>\n>\n>\n");
 
-        System.out.println("Shtyp 1 për numra binar");
-        System.out.println("Shtyp 2 për numra oktal");
-        System.out.println("Shtyp 3 për numra decimal");
-        System.out.println("Shtyp 4 për numra hexadecimal");
-        System.out.println("Shtyp 0 për të perfunduar Aplikacionin");
-
-        System.out.println("\n>\n>\n>\n>\n");
-
-    }
-
-    public static void decimalToBinar(int decimal) {
-        int binary[] = new int[1000];
-        int index = 0;
-
-        while (decimal > 0) {
-
-            binary[index++] = decimal % 2;
-            decimal = decimal / 2;
-        }
-        for (int i = index - 1; i >= 0; i--) {
-            System.out.print(binary[i]);
-        }
-
-        System.out.print(" (Binar)2 \n");
-    }
-
-    public static void decimalToHexadecimal(int decimal) {
-        int index;
-        String hex = "";
-        char hexchars[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-        while (decimal > 0) {
-            index = decimal % 16;
-            hex = hexchars[index] + hex;
-            decimal = decimal / 16;
-        }
-        System.out.print(hex + " (Hexadecimal)16 \n");
-    }
-
-    public static void decimalToOktal(int decimal) {
-        int oktal[] = new int[10000];
-        int indexOktal = 0;
-        while (decimal > 0) {
-            oktal[indexOktal++] = decimal % 8;
-            decimal = decimal / 8;
-        }
-        for (int i = indexOktal - 1; i >= 0; i--) {
-            System.out.print(oktal[i]);
-        }
-        System.out.print(" (Oktal)8 \n");
-    }
-
-    public static int binarToDecimal(String binar) {
-
-        int decimal = Integer.parseInt(binar, 2);
-        System.out.print(decimal + " (Decimal)10 \n");
-        return decimal;
+System.out.println(
+		"\n>\n>\n>\n>\n"
+		+ "\nShtyp 1 për numra binar \n"
+		+ "Shtyp 2 për numra oktal \n"
+		+ "Shtyp 3 për numra decimal \n"
+		+ "Shtyp 4 për numra hexadecimal \n"
+		+ "Shtyp 0 për të perfunduar Aplikacionin \n"
+		+ "\n>\n>\n>\n>\n"
+		);
 
     }
-
-    public static void binarToOktal(String binar) {
-
-        int num = Integer.parseInt(binar, 2);
-        String oktal = Integer.toOctalString(num);
-        System.out.print(oktal + " (Oktal)8 \n");
-
+    
+    //Decimal
+    public static void binarMath(int num, int baseNum, String base) {
+    	int binar[] = new int [1000];
+    	int index = 0;
+    	
+    	while(num > 0) {
+    		binar[index++] = num % baseNum;
+    		num /= baseNum;
+    	}
+    	for(int i = index-1; i >= 0; i--) {
+    		System.out.print(binar[i]);
+    	}
+    	System.out.print("("+base+")"+baseNum+ "\n");
     }
 
-    public static void binarToHexadecimal(String binar) {
-        String hexadecimal = "";
-        char[] hexchars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-
-        int decimal = binarToDecimal(binar);
-        while (decimal > 0) {
-
-            hexadecimal = hexchars[decimal % 16] + hexadecimal;
-            decimal /= 16;
-        }
-
-        System.out.println(hexadecimal + " (Hexadecimal)16 \n");
-
+    public static void decToBinar(int decimal) {
+    	binarMath(decimal,2,"Binar");
     }
+   public static void decToOktal(int decimal) {
+	   binarMath(decimal,8,"Oktal");
+   }
+   public static void decToHex(int decimal) {
+	   
+       int index;
+       String hex = "";
+       char hexchars[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+       while (decimal > 0) {
+           index = decimal % 16;
+           
+           hex = hexchars[index] + hex;
+           decimal /= 16;
+       }
+       System.out.print(hex + " (Hexadecimal)16 \n");
+   }
+   
+  //Binar
+   
+   public static int binarToDec(String binar) {
 
-    public static void oktalToBinar(int oktal) {
-        int[] oktalChar = { 0, 1, 10, 11, 100, 101, 110, 111 };
-        long binarNum, place;
-        int index;
+       int decimal = Integer.parseInt(binar, 2);
+       System.out.print(decimal + " (Decimal)10 \n");
+       return decimal;
 
-        binarNum = 0;
-        place = 1;
-        while (oktal != 0) {
-            index = (int) (oktal % 10);
-            binarNum = oktalChar[index] * place + binarNum;
-            oktal /= 10;
-            place *= 1000;
-        }
-        System.out.print(binarNum + " (Binar)2 \n");
-    }
+   }
 
-    public static int octalToDecimal(int oktal) {
+   public static void binarToOktal(String binar) {
 
-        int base = 1;
-        int index = 0;
+       int num = Integer.parseInt(binar, 2);
+       String oktal = Integer.toOctalString(num);
+       System.out.print(oktal + " (Oktal)8 \n");
 
-        while (oktal > 0) {
+   }
 
-            int oktalSum = oktal % 10;
-            oktal = oktal / 10;
+   public static void binarToHex(String binar) {
+       String hexadecimal = "";
+       char[] hexchars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
-            index += oktalSum * base;
+       int decimal = binarToDec(binar);
+       while (decimal > 0) {
 
-            base = base * 8;
-        }
-        return index;
+           hexadecimal = hexchars[decimal % 16] + hexadecimal;
+           decimal /= 16;
+       }
 
-    }
+       System.out.println(hexadecimal + " (Hexadecimal)16 \n");
 
-    public static void oktalToHexadecimal(int oktal) {
-        String hexadecimal = "";
-        char[] hexchars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+   }
 
-        int decimal = octalToDecimal(oktal);
-        while (decimal > 0) {
+  
 
-            hexadecimal = hexchars[decimal % 16] + hexadecimal;
-            decimal /= 16;
-        }
+//   Oktal
+   public static int oktalToDecimal(int num) {
+	   int base = 1;
+	   int index = 0;
+	   
+	   
+	   while(num > 0 ) {
+		   int oktalSum = num % 10;
+		   num /= 10;
+		   
+		   index += oktalSum * base;
+		   base *= 8;
+	   }
 
-        System.out.println(hexadecimal + " (Hexadecimal)16 \n");
+	   return index;
+   }
+   
+  public static void oktalToBinar(int num) {
 
-    }
+	  int[] oktal = { 0, 1, 10, 11, 100, 101, 110, 111 };
+      long base = 1;
+      long binarNum = 0; 
+      int index;
 
-    public static int hexadecimalToDeciaml(String hex) {
+       while (num > 0) {
+           index = (int) (num % 10);
+           binarNum = oktal[index] * base + binarNum;
+           num /= 10;
+           base *= 1000;
+       }
+       System.out.print(binarNum + " (Binar)2 \n");
+   
+     
+   }	   
+   public static void oktalToHex(int oktal) {
 
-        int num = Integer.parseInt(hex, 16);
+       String hexadecimal = "";
+       char[] hexchars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
-        return num;
+       int decimal = oktalToDecimal(oktal);
+       while (decimal > 0) {
 
-    }
+           hexadecimal = hexchars[decimal % 16] + hexadecimal;
+           decimal /= 16;
+       }
 
-    public static void hexadecimalToBinar(String hex) {
+       System.out.println(hexadecimal + " (Hexadecimal)16 \n");
 
-        long longs = Long.parseLong(hex, 16);
-        String binary = Long.toBinaryString(longs);
+  
+   }
+   
 
-        System.out.print(binary + " (Binar)2 \n");
+//  Hexadecimal
+   public static int hexToDecimal(String hex) {	  
+       int num = Integer.parseInt(hex, 16);
+       return num;
+   }
 
-    }
+   public static void hexToBinar(String hex) {
 
-    public static void hexadecimalToOktal(String hex) {
+       long longs = Long.parseLong(hex, 16);
+       String binary = Long.toBinaryString(longs);
 
-        int decimalNumber, index = 1, i;
-        int[] octalNumber = new int[100];
+       System.out.print(binary + " (Binar)2 \n");
 
-        decimalNumber = hexadecimalToDeciaml(hex);
-        while (decimalNumber > 0) {
-            octalNumber[index++] = decimalNumber % 8;
-            decimalNumber = decimalNumber / 8;
-        }
-        for (i = index - 1; i > 0; i--) {
-            System.out.print(octalNumber[i]);
-        }
+   }
 
-        System.out.print(" (Oktal)8 \n");
-        // long decimalNumber = Long.parseLong(hex, 8);
-        // String num = Long.toHexString(decimalNumber);
-        // System.out.print(num + " Oktal \n");
-    }
+   public static void hexToOktal(String hex) {
+
+       int decimalNumber, index = 1, i;
+       int[] octalNumber = new int[100];
+
+       decimalNumber = hexToDecimal(hex);
+       while (decimalNumber > 0) {
+           octalNumber[index++] = decimalNumber % 8;
+           decimalNumber = decimalNumber / 8;
+       }
+       for (i = index - 1; i > 0; i--) {
+           System.out.print(octalNumber[i]);
+       }
+
+       System.out.print(" (Oktal)8 \n");
+   }
+   
+   public static void getBinar(String binar) {
+	   binarToDec(binar);
+	   binarToOktal(binar);
+	   binarToHex(binar);
+   }
+   
+   public static void getOktal(int oktal) {
+	   System.out.print(oktalToDecimal(oktal));
+	   System.out.println(" (Deciamal)10");
+	   oktalToBinar(oktal);
+	   oktalToHex(oktal);
+   }
+   
+   public static void getDecimal(int decimal) {
+       decToBinar(decimal);
+       decToOktal(decimal);
+       decToHex(decimal);
+   }
+
+   public static void getHexa(String hex) {
+	   hexToDecimal(hex);
+	   hexToBinar(hex);
+	   hexToOktal(hex);
+;   }
 
     public static void main(String[] args) {
 
@@ -186,32 +208,25 @@ public class SistemetNumerike {
 
                 System.out.print("Shruani Numrin Binar: ");
                 String binar = s.next().replaceAll("\\s+","");
-
-//                binarToDecimal(binar);
-                binarToOktal(binar);
-                binarToHexadecimal(binar);
-
+                getBinar(binar);
+                
             } else if (choise == 2) {
                 System.out.print("Shruani Numrin Oktal: ");
                 int oktal = s.nextInt();
-                oktalToBinar(oktal);
-                System.out.print(octalToDecimal(oktal) + " (Decimal)10 \n");
-                oktalToHexadecimal(oktal);
+                getOktal(oktal);
 
             } else if (choise == 3) {
                 System.out.print("Shruani Numrin Decimal: ");
                 int decimal = s.nextInt();
-                decimalToBinar(decimal);
-                decimalToOktal(decimal);
-                decimalToHexadecimal(decimal);
+                getDecimal(decimal);
+
+
             } else if (choise == 4) {
                 // hexadecimal
                 System.out.print("Shruani numrin Hexadeximla: ");
-                String hexa = s.next().toUpperCase().replaceAll("\\s+","");
-                hexadecimalToBinar(hexa);
-                hexadecimalToOktal(hexa);
-                System.out.println(hexadecimalToDeciaml(hexa) + " (Decimal)10 \n");
-
+                String hexa = s.next();
+                getHexa(hexa);
+                
             }
 
             System.out.println("\n>\n>\n>\n>\n");
@@ -229,15 +244,5 @@ public class SistemetNumerike {
             System.out.println("> Aplikacioni përfundoi");
             System.exit(1);
         }
-        // char = choise;
-        // do {
-        // System.out.print("Shkruani numrin Decimal: ");
-        // shfaqOpsionet();
-        // int num = s.nextInt();
-        //
-        // toBinary(num);
-        // System.out.print("Shypni x pėr tė vazhduar: ");
-        // choise = s.next().charAt(0);
-        // } while (choise == 'x' || choise == 'X');
-    }
+ }
 }
