@@ -1,13 +1,17 @@
-package Projeckte;
+package Challange;
 
-import java.util.Scanner;
+import java.util.*;
 
-public class SistemiNumerik {
+public class SistemetNumerike {
+
 	public static void shfaqOpsionet() {
 
-		System.out.println("\n>\n>\n>\n>\n" + "\nShtyp 1 për numra binar \n" + "Shtyp 2 për numra oktal \n"
-				+ "Shtyp 3 për numra decimal \n" + "Shtyp 4 për numra hexadecimal \n"
-				+ "Shtyp 0 për të perfunduar Aplikacionin \n" + "\n>\n>\n>\n>\n");
+		System.out.print("\n>\n>\n>\n>\n" + "\nShtyp 1 për numra binar \n" + "Shtyp 2 për numra oktal \n"
+				+ "Shtyp 3 për numra decimal \n" + "Shtyp 4 për numra hexadecimal \n" + "Shtyp 5 për IP Address \n"
+				+ "Shtyp 6 për te gjeneruar \n" + "Shtyp 7 për te gjeneruar IP address \n"
+				+ "Shtyp 8 për te gjeneruar MAC address \n" + "Shtyp 0 për të perfunduar Aplikacionin \n"
+				+ "\n>\n>\n>\n>\n"
+				+"Jep numrin: ");
 
 	}
 
@@ -163,7 +167,7 @@ public class SistemiNumerik {
 	}
 
 	public static void getBinar(String binar) {
-		binarToDec(binar);
+//		binarToDec(binar);
 		binarToOktal(binar);
 		binarToHex(binar);
 	}
@@ -182,19 +186,69 @@ public class SistemiNumerik {
 	}
 
 	public static void getHexa(String hex) {
-		hexToDecimal(hex);
 		hexToBinar(hex);
 		hexToOktal(hex);
-		;
+		System.out.print(hexToDecimal(hex));
+		System.out.println("(Decimal)10");
+	}
+
+	public static int getDecimalGenerator() {
+		Random rand = new Random();
+		int decimal = rand.nextInt(255);
+		return decimal;
+	}
+
+	public static String getHexaGenerator() {
+		Random rand = new Random();
+		String hexa = Integer.toHexString(rand.nextInt(0xff));
+		return hexa;
+	}
+
+//ip generor
+
+	public static void IPMath(int num, int baseNum) {
+		int binar[] = new int[1000];
+		int index = 0;
+
+		while (num > 0) {
+			binar[index++] = num % baseNum;
+			num /= baseNum;
+		}
+		for (int i = index - 1; i >= 0; i--) {
+			System.out.print(binar[i]);
+		}
+	}
+
+	public static void IPToBinar(int decimal) {
+		IPMath(decimal, 2);
+
+	}
+
+	public static void IPToOktal(int decimal) {
+		IPMath(decimal, 8);
+	}
+
+	public static void IPToHex(int decimal) {
+
+		int index;
+		String hex = "";
+		char hexchars[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+		while (decimal > 0) {
+			index = decimal % 16;
+
+			hex = hexchars[index] + hex;
+			decimal /= 16;
+		}
+		System.out.print(hex);
 	}
 
 	public static void main(String[] args) {
 
 		Scanner s = new Scanner(System.in);
+		Random rand = new Random();
 		System.out.println("> Aplikacioni për Sistemin e Numrave");
 		shfaqOpsionet();
 		int choise;
-		System.out.print("Jep numrin: ");
 		while ((choise = s.nextInt()) > 0) {
 			if (choise == 1) {
 
@@ -218,13 +272,135 @@ public class SistemiNumerik {
 				String hexa = s.next();
 				getHexa(hexa);
 
+			} else if (choise == 5) {
+				System.out.print("Shruani numrin IP: ");
+				String IpAddress = s.next();
+				String IPRules = "(\\d{1,2}|(0|1)\\d{2}|2[0-4]\\d|25[0-5])";
+
+				String IPRulesResult = IPRules + "\\." + IPRules + "\\." + IPRules + "\\." + IPRules;
+				if (IpAddress.matches(IPRulesResult)) {
+					String[] IPSplit = IpAddress.split("\\.");
+					System.out.print("Binar: \t     ");
+					for (String string : IPSplit) {
+						int octet = Integer.parseInt(string);
+						String binaryOctet = Integer.toBinaryString(octet);
+						System.out.print(binaryOctet);
+						System.out.print(".");
+					}
+					System.out.println("");
+					System.out.print("Oktal: \t     ");
+					for (String string : IPSplit) {
+						int octet = Integer.parseInt(string);
+						String octalString = Integer.toOctalString(octet);
+						System.out.print(octalString);
+
+						System.out.print(".");
+					}
+					System.out.println("");
+					System.out.print("Hexadecimal: ");
+					for (String string : IPSplit) {
+						int octet = Integer.parseInt(string);
+						String binaryOctet = Integer.toHexString(octet);
+						System.out.print(binaryOctet);
+						System.out.print(".");
+					}
+					System.out.println("");
+				} else {
+					System.out.println("Invalid IP");
+				}
+			} else if (choise == 6) {
+				// Binar
+				// max //min //min
+				String binar = Integer.toBinaryString(rand.nextInt((1023 - 16) + 1) + 16);
+				System.out.println("Binar: \t\t" + binar);
+
+				// Oktal
+				int oktal = rand.nextInt(6 * 100) - 1;
+				System.out.println("Oktal: \t\t" + oktal);
+
+				// decimal
+				int decimal = rand.nextInt(1023) + 1;
+				System.out.println("Deciml: \t" + decimal);
+
+				// Hexadeciaml
+				String hexadecimal = Integer.toHexString(rand.nextInt(16383)); // 16*1024 - 1
+				System.out.println("Hexadecimal:    " + hexadecimal);
+
+				int choise2;
+				System.out.print("\nShtyp 0 për rezultatet: ");
+				choise2 = s.nextInt();
+				if (choise2 == 0) {
+					System.out.println("\n" + binar + " Binar");
+					getBinar(binar);
+
+					System.out.println("\n" + oktal + " Oktal");
+					getOktal(oktal);
+
+					System.out.println("\n" + decimal + " Decimal");
+					getDecimal(decimal);
+
+					System.out.println("\n" + hexadecimal + " Hexadecimal");
+					getHexa(hexadecimal);
+
+				}
+
+			} else if (choise == 7) {
+				int[] num = new int[4];
+
+				num[0] = getDecimalGenerator();
+				num[1] = getDecimalGenerator();
+				num[2] = getDecimalGenerator();
+				num[3] = getDecimalGenerator();
+
+				for (int i = 0; i < num.length; i++) {
+					System.out.print(num[i]);
+					if (i != num.length - 1) {
+						System.out.print(".");
+					}
+				}
+				System.out.print("\nShtyp 0 për rezultatet: ");
+				int choise1 = s.nextInt();// replaceAll("\\s+", "");
+
+				if (choise1 == 0) {
+					for (int i = 0; i < num.length; i++) {
+						IPToBinar(num[i]);
+						if (i != num.length - 1) {
+							System.out.print(".");
+						}
+					}
+					System.out.println("");
+
+					for (int i = 0; i < num.length; i++) {
+						IPToOktal(num[i]);
+						if (i != num.length - 1) {
+							System.out.print(".");
+						}
+					}
+					System.out.println("");
+					for (int i = 0; i < num.length; i++) {
+						IPToHex(num[i]);
+						if (i != num.length - 1) {
+							System.out.print(".");
+						}
+					}
+					System.out.println("");
+				}
+
+			} else if (choise == 8) {
+
+				for (int i = 0; i < 10; i++) {
+					System.out.println(getHexaGenerator() + "-" + getHexaGenerator() + "-" + getHexaGenerator() + "-"
+							+ getHexaGenerator() + "-" + getHexaGenerator() + "-" + getHexaGenerator());
+
+				}
 			}
 
 			System.out.println("\n>\n>\n>\n>\n");
-			System.out.println("> Për të vazhduar shtypeni numrin pesë (5)");
+			System.out.println("> Për të vazhduar shtypni numrin Nente (9)");
 			System.out.print("Jep numrin: ");
-			if (s.nextInt() == 5)
+			if (s.nextInt() == 9)
 				shfaqOpsionet();
+			
 			else
 				break;
 		}
@@ -236,4 +412,5 @@ public class SistemiNumerik {
 			System.exit(1);
 		}
 	}
+
 }
