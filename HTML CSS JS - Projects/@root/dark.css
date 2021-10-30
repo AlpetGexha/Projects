@@ -1,0 +1,159 @@
+:root {
+
+
+    /* Color */
+    --dm-primary: #202424;
+    --dm-tertiary: #202020;
+    --dm-dark-list: #222;
+    --dm-dark-strong: #181818;
+    --dm-gray-dark: #343a40;
+    --dm-gray-600: #6c757d;
+    --dm-gray-900: #212529;
+    --dm-white: #fff;
+    --dm-light: #f8f9fa;
+
+    /* less - for normal, more - for hover and focus */
+    --dm-blue-less: #007bff;
+    --dm-blue-more: #0069d9;
+
+    --dm-lighblue-less: #17a2b8;
+    --dm-lightblue-more: #138496;
+
+    --dm-green-less: #218838;
+    --dm-green-more: #28a745;
+
+    --dm-yellow-less: #e0a800;
+    --dm-yellow-more: #ffc107;
+
+    --dm-red-more: #dc3545;
+    --dm-red-less: #c82333;
+
+    --dm-light-more-text: #bebebe;
+    --dm-tight-less-text: #d3d3d3;
+
+    --dm-gray-more: #e2e6ea;
+
+    /*  */
+    --dm-border-color: #404040;
+    --dm-item-second-color: #282c2c;
+
+
+    /* Body */
+    --font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --dm-body-color: #202424;
+    --body-font-size: 1rem;
+    --body-font-weight: 400;
+    --body-line-height: 1.5;
+    --body-font-family: var(--font-sans-serif);
+
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion:no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: var(--dm-body-color);
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #4e4e4e;
+    border-radius: 25px;
+}
+
+::selection {
+    color: var(--dm-dark-strong);
+    background: #4e4e4e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+ul,
+span,
+b {
+    color: #d3d3d3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+p {
+    line-height: 1.6
+}
+
+body {
+    /* #212121, #121212, #323232, #909090 */
+    margin: 0;
+    height: 100%;
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-weight: var(--body-font-weight);
+    line-height: var(--body-line-height);
+    color: var(--dm-light-text);
+    background-color: var(--dm-dark-strong);
+    text-align: var(--body-text-align);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent
+}
+
+
+[type=search] {
+    outline-offset: -2px;
+    -webkit-appearance: textfield
+}
+
+::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+
+::-webkit-file-upload-button {
+    font: inherit
+}
+
+::-webkit-file-selector-button {
+    font: inherit
+}
+
+::-webkit-file-upload-button {
+    font: inherit;
+    -webkit-appearance: button
+}
+
+
+[hidden] {
+    display: none;
+}
+
+
+/* @media(prefers-color-scheme: dark) {} */
