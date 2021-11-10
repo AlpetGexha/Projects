@@ -1,0 +1,19 @@
+.container {
+  width: 80%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+p:first-of-type::first-letter {
+  float: left;
+  padding: 5px 30px 15px;
+  margin-top: -40px;
+  margin-right: 16px;
+  font-family: "Alliance No.2", "Alliance No.1", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 105px;
+  line-height: 1em;
+  color: #00FFFF;
+  background: none;
+  border: 5px solid #60c689;
+  border-image: linear-gradient(135deg, #000000, #00FFFF) 10;
+}
