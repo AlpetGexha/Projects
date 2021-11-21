@@ -50,14 +50,14 @@ public class Calculator {
 			boolean calcNumCheck = false;
 
 			while (!calcNumCheck) {
-				setCalcNum = s.nextLine();
+				setCalcNum = s.nextLine().replaceAll("\\s", "");
 
 				calcNumCheck = setCalcNum.matches("[0-9_*+-/]*$");
 				if (!calcNumCheck) {
 					System.out.print("InvalidNumber ");
 				} else {
 					double result = calc(setCalcNum);
-					System.out.println(setCalcNum + "\n= " + result);
+					System.out.println(setCalcNum + "\n= " + result + "\n");
 				}
 
 			}
