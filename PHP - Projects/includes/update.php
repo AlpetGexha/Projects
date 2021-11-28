@@ -1,4 +1,4 @@
-<?php
+ <?php
 include_once 'includes/ini.php';
 
 $x = new User();
@@ -28,13 +28,13 @@ if (Input::exist()) {
             try {
                 $x->update(array(
 
-                    'emri' => ucfirst(Input::get('name')),
+                    'emri' => ucfirst(Input::get('emri')),
                     'mbiemri' => ucfirst(Input::get('mbiemri')),
 
                 ));
 
                 Session::flash('update', 'Update Suksess');
-                Go::to('index.php');
+                Go::to('index');
                 //
             } catch (Expired $r) {
                 die($r->getMessage);

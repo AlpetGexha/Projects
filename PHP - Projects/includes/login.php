@@ -1,6 +1,12 @@
 <?php
 include_once 'includes/ini.php';
-
+$user = new User();
+if ($user->isLoggendIn()) {
+    Go::to('index');
+}
+if (Session::exist('suksess')) {
+    echo Session::flash('suksess');
+}
 if (Input::exist()) {
     //echo "Eksiston";
     if (Token::checkToken(Input::get('token'))) {
@@ -20,7 +26,7 @@ if (Input::exist()) {
             $login = $u->login(Input::get('username'), Input::get('password'));
 
             if ($login) {
-                Go::to('index.php');
+                Go::to('index');
             }
         } else {
             $validate->getError();
@@ -33,6 +39,11 @@ if (Input::exist()) {
 <html lang="en">
 
 <head>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        } //Mos u submit nese bohet refresh faqja
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

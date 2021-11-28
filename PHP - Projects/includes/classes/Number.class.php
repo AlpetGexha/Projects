@@ -1,4 +1,15 @@
 <?php
+
+/** 
+ * 
+ * @method   Number::generate();             ef3UN79%H8acG$YuVdL&
+ * @method   Number::geneateChar();          rRhqpVyjtzWgNBmZnPOF
+ * @method   Number::geneateCharNum();       acPSAYq8dnh1rlBiv5xj
+ * @method   Number::geneateCharSymbol();    FOfrwqkd?vlKxWpagstY
+ * @method   Number::geneateNum();           zRYTGhLSOtNbv!rIx&k%
+ * @method   Number::geneateNumSymbol();     ^8$31?560#97%4!&*2@
+
+ */
 class Number
 {
 
@@ -11,7 +22,7 @@ class Number
     public function  __construct()
     {
     }
-    public static function getTokenElement($element, $len = 20)
+    public static function getTokenElement(mixed $element, int $len = 20)
     {
         $token = $element;
         $token = str_shuffle($token);
@@ -19,30 +30,35 @@ class Number
         return $token;
         //  echo $token . "<br>";
     }
+    /** generateRandom - ef3UN79%H8acG$YuVdL& */
     public static function generate() //ef3UN79%H8acG$YuVdL&
     {
         $token = self::$bigChar . self::$smallChar . self::$num . self::$symbol;
         self::getTokenElement($token);
     }
 
+    /** Generate Charset - rRhqpVyjtzWgNBmZnPOF */
     public static function geneateChar() //rRhqpVyjtzWgNBmZnPOF
     {
         $token = self::$bigChar . self::$smallChar;
         self::getTokenElement($token);
     }
 
+    /** Generate Charset and Number - acPSAYq8dnh1rlBiv5xj */
     public static function geneateCharNum() //acPSAYq8dnh1rlBiv5xj
     {
         $token = self::$bigChar . self::$smallChar . self::$num;
         self::getTokenElement($token);
     }
 
+    /** Generate Charset and Symbol - vlKxWpagstY */
     public static function geneateCharSymbol() //FOfrwqkd?vlKxWpagstY
     {
         $token = self::$bigChar . self::$smallChar . self::$symbol;
         self::getTokenElement($token);
     }
 
+    /** Generate Number and Symbol - zRYTGhLSOtNbv */
     public static function geneateNumSymbol() //zRYTGhLSOtNbv!rIx&k%
     {
         $token = self::$num . self::$symbol;
@@ -54,11 +70,4 @@ class Number
         $token = self::$bigChar . self::$smallChar . self::$symbol;
         self::getTokenElement($token);
     }
-} /*
-    Number::generate();             //ef3UN79%H8acG$YuVdL&
-    Number::geneateChar();          //rRhqpVyjtzWgNBmZnPOF
-    Number::geneateCharNum();       //acPSAYq8dnh1rlBiv5xj
-    Number::geneateCharSymbol();    //FOfrwqkd?vlKxWpagstY
-    Number::geneateNum();           //zRYTGhLSOtNbv!rIx&k%
-    Number::geneateNumSymbol();     //^8$31?560#97%4!&*2@
- */
+}

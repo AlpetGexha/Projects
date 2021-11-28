@@ -1,8 +1,9 @@
 <?php
 
+/** Redirect */
 class Go
 {
-    public static function to($location)
+    public static function to(String $location)
     {
         if ($location) {
             if (is_numeric($location)) {

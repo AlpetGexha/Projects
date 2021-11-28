@@ -9,6 +9,7 @@ class User
         $isLogenIN;
 
 
+    /** @var Username */
     public function __construct($user = null)
     {
         $this->db = DB::getDB();
@@ -16,7 +17,7 @@ class User
         $this->sessionName = Config::get('session/sessionName');
         $this->sessionRole = Config::get('session/sessionRoles');
 
-
+        /** Check if user is loggin */
         if (!$user) {
             if (Session::exist($this->sessionName)) {
                 $user = Session::get($this->sessionName);
@@ -33,11 +34,11 @@ class User
         }
     }
 
-    //Find first username on DB where userid = $user 
-    public function find($user = null)
+    /** Find first username on DataBase */
+    public function find(mixed $user = null)
     {
         if ($user) {
-            // if user had a numeric username this FAILS...
+            // if user had a numeric return id else username
             $field = (is_numeric($user)) ? 'id' : 'username';
             $data = $this->db->get('users', array($field, '=', $user));
 
@@ -50,32 +51,34 @@ class User
         return false;
     }
 
-    //login 
-    public function login($username = null, $password = null)
+    /** Login */
+    public function login(String $username = null, String $password = null)
     {
-        $user = $this->find($username);
+        // $user = ;
         //    echo "<pre>"; print_r($this->data);
-        if ($user) {
-            if ($this->data()->password === Hash::make($password));
-            // echo "Logged in";
-            Session::put($this->sessionName, $this->data()->id);
-            Session::put($this->sessionRole,  $this->data()->role);
-            return true;
+        if ($this->find($username)) {
+            if ($this->data()->password === Hash::make($password)) {
+                // echo "Logged in";
+                Session::put($this->sessionName, $this->data()->id);
+                // Session::put($this->sessionRole,  $this->data()->role);
+                return true;
+            }
         }
+        return false;
     }
 
 
 
-    //krijo usernamin
-    public function create($fields = array())
+    /** Create User */
+    public function create(array $fields = array())
     {
-        if (!$this->db->insert('users', $fields)) {
+        if (!$this->db->insert('users ', $fields)) {
             throw new Exception('Kishte nj&euml; problem me krijimin e k&euml;saj llogaris.');
         }
     }
 
-    //update user 
-    public function update($fileds = array(), $id = null)
+    /** Update User  */
+    public function update(array $fileds = array(), int $id = null)
     {
         if (!$id && $this->isLoggendIn()) {
             $id = $this->data()->id;
@@ -92,27 +95,27 @@ class User
     }
 
 
-    //check if user its loggin
+    /** Check if user its loggin */
     public function isLoggendIn()
     {
         return $this->isLogenIN;
     }
 
-    //check if this username exist on database
+    /** Check if this username exist on database */
     public function exist()
     {
         return (!empty($this->data)) ? true : false;
     }
 
-    //logout
+    /** logout */
     public function logout()
     {
         Session::delete($this->sessionName);
-        Session::delete($this->sessionRole);
-        Go::to('login.php');
+        // Session::delete($this->sessionRole);
+        Go::to('login');
     }
 
-    //give data
+    /** Get all user data */
     public function data()
     {
         return $this->data;

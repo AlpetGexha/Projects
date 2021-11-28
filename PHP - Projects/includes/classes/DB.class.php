@@ -1,7 +1,12 @@
 <?php
+
+/** 
+ * Databasa ORM
+ */
 class DB
 {
     private static $database = null;
+    /** @var Databasa*/
     private $pdo,
         $sql,
         $results,
@@ -20,6 +25,9 @@ class DB
     }
 
     //get batabase only one time
+    /** Lidhu me database vetem një here
+     * 
+     *  @return MainDatabase */
     public static function getDB() //DB::getDB();
     {
         if (!isset(self::$database)) {
@@ -28,8 +36,11 @@ class DB
         return self::$database;
     }
 
-    // query function
-    public function sql($sql, $executes = array()) //DB::getDB()->sql("SELECT * from users where username = ?", array('AlpetG'))
+    /**
+     * query function 
+     * @return "SELECT * from x where y = ?", ? = zs
+     * */
+    public function sql(String $sql, array $executes = array()) //DB::getDB()->sql("SELECT * from users where username = ?", array('AlpetG'))
     {
         $this->error = false;
         if ($this->sql = $this->pdo->prepare($sql)) {
@@ -52,8 +63,11 @@ class DB
         return $this;
     }
 
-
-    public function action($action, $table, $where = array()) //DB::getDB()->get('SELCET *','users', array('username ' , '=' , 'AlpetG') );
+    /**
+     * @param String $action
+     * @return "SELECT * from x where z 'operator' z"
+     */
+    public function action(String $action, String $table, array $where = array()) //DB::getDB()->get('SELCET *','users', array('username ' , '=' , 'AlpetG') );
     {
         if (count($where) === 3) {
             $allow = array('=', '<', '>', '>=', '=>');
@@ -75,20 +89,20 @@ class DB
         }
     }
 
-    // get  data
-    public function get($tabel, $where) //DB::getDB()->get('users', array('username ' , '=' , 'AlpetG'));
+    /** Selcet data */
+    public function get(String $tabel, array $where) //DB::getDB()->get('users', array('username ' , '=' , 'AlpetG'));
     {
         return $this->action("SELECT *", $tabel, $where);
     }
 
-    // Delete Data
-    public function delete($tabel, $where)
+    /** Delete Data */
+    public function delete(String $tabel, $where)
     {
         return $this->action("DELETE ", $tabel, $where);
     }
 
-    //Insert Data
-    public function insert($table, $fields = array())
+    /** Insert Data */
+    public function insert(String $table, array $fields = array())
     {
         if (count($fields)) {
             $keys = array_keys($fields);
@@ -116,9 +130,8 @@ class DB
     }
 
 
-    //Update Data
-
-    public function update($table, $id, $fields = array()) //DB::getDB()->update('users', 65, array( 'emri' => 'Alpet', 'mbiemri' => 'Gexha', 'username' => 'AlpetG23', 'password' => '123456789' ));
+    /** Update Data */
+    public function update(String $table, int $id, array $fields = array()) //DB::getDB()->update('users', 65, array( 'emri' => 'Alpet', 'mbiemri' => 'Gexha', 'username' => 'AlpetG23', 'password' => '123456789' ));
     {
         $set = ' ';
         $x = 1;
@@ -143,26 +156,26 @@ class DB
     }
 
 
-    //  get results
+    /** get results */
     public function results()
     {
         return $this->results;
     }
 
-    //get firts result
+    /** get firts result */
     public function firstResult()
     {
         return $this->results()[0];
     }
 
-    //  get error
-    public function error()
+    /** get all error */
+    public function error(): String
     {
         return $this->error;
     }
 
-    //get Count
-    public function count()
+    /** get Count */
+    public function count(): int
     {
         return $this->count;
     }

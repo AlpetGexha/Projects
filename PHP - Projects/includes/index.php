@@ -4,6 +4,11 @@
 <html lang="en">
 
 <head>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        } //Mos u submit nese bohet refresh faqja
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +32,7 @@ echo var_dump(Config::get('mysql')); //localhosts
 
 <!-- Chek query -->
 <?php
-/**
+/*
 $user = DB::getDB()->action('SELECT *', 'users', array('usersname ', '=', 'AlpetG'));
    $user = DB::getDB()->get('users', array('username ', '=', 'AlpetG'));
 
@@ -41,7 +46,7 @@ $user = DB::getDB()->action('SELECT *', 'users', array('usersname ', '=', 'Alpet
 
 <!-- Chek result -->
 <?php
-/** TODO:
+/* TODO:
 $user = DB::getDB()->sql('SELECT * FROM users');
 if (!$user->count()) {
     echo "No Data";
@@ -61,14 +66,14 @@ if (!$user->count()) {
 <!-- Insert/Update -->
 <?php
 
-/** Insert
+/* Insert
 $x = DB::getDB()->Insert('users', array(
     'emri' => 'Alpet',
     'mbiemri' => 'Gexha'
 ));
 echo $x; //INSERT INTO users (`emri`, `mbiemri`) VALUES (?, ?)
  */
-/** Update
+/* Update
 $x = DB::getDB()->update('users', 65, array(
     'emri' => 'Alpet',
     'mbiemri' => 'Gexha',
@@ -97,7 +102,7 @@ if (Session::exist('success')) {
 <?php
 $x = new  User();
 if (!$x->isLoggendIn()) {
-    Go::to('login.php');
+    Go::to('login');
 }
 Session::flash('password');
 ?>
@@ -106,15 +111,15 @@ Session::flash('password');
 <p> <?= escape($x->data()->emri); ?> </p>
 
 <p> <?= escape($x->data()->mbiemri); ?></p>
-<p>Hello <a href="profile.php?id=<?= escape($x->data()->id); ?>">
+<p>Hello <a href="profile?id=<?= escape($x->data()->id); ?>">
         <?= escape($x->data()->username); ?></a>!</p>
 
 
 <ul>
 
-    <li><a href="logout.php">Logut</a></li>
-    <li><a href="update.php">Update</a></li>
-    <li><a href="changePassword.php">changePassword</a></li>
+    <li><a href="logout">Logut</a></li>
+    <li><a href="update">Update</a></li>
+    <li><a href="changePassword">changePassword</a></li>
 
 
 </ul>

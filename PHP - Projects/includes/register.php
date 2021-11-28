@@ -60,7 +60,7 @@
                 //header('Location: index.php');
 
                 Session::flash('suksess', 'U krijua me sukses');
-                header('Location: register.php');
+                header('Location: login');
                 $u = new User();
                 $u->create(array(
 

@@ -1,4 +1,14 @@
 <?php
+
+/**
+ *  @method min Mininumu => x
+ *  @method max Maximum => x
+ *  @method req Request
+ *  @method match x => y
+ *  @method uniq x => database tabel
+ *  @method email EmailOnly 
+ * 
+ */
 class Validation
 {
     private $errors = array(),
@@ -11,8 +21,12 @@ class Validation
     {
         $this->db = DB::getDB();
     }
-
-    public function check($source, $items = array())
+    /** 
+     * @param InputName $source
+     * @param Validate $items
+     * 
+     */
+    public function check($source, array $items = array())
     {
         foreach ($items as $item => $rules) {
             foreach ($rules as $rule => $rule_value) {
@@ -63,21 +77,25 @@ class Validation
         return $this;
     }
 
+    /** Add error on validate */
     private function addError($error)
     {
         $this->errors[] = $error;
     }
 
+    /** Get All errors on validate */
     public function errors()
     {
         return $this->errors;
     }
 
+    /** Validate Passed */
     public function passed()
     {
         return $this->passed;
     }
 
+    /** Get All error on validate */
     public function getError()
     {
         foreach ($this->errors() as $error) {

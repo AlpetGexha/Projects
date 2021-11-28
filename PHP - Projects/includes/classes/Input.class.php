@@ -1,8 +1,10 @@
 <?php
+
+/** Chek if input have GET or POST request */
 class Input
 {
-    //chek if input exist or not
-    public static function exist($item = 'post')
+    /** chek if input exist or not */
+    public static function exist(String $item = 'post')
     {
         switch ($item) {
             case 'post':
@@ -16,11 +18,11 @@ class Input
                 break;
         }
 
-      //  echo "submitedd";
+        //  echo "submitedd";
     }
 
-    // get Input name
-    public static function get($item) //$_POST['username'] || $_GET['username'];
+    /** Get $_POST or $_GET input */
+    public static function get(String $item) //$_POST['username'] || $_GET['username'];
     {
         if (isset($_POST[$item])) {
             return $_POST[$item];
@@ -30,6 +32,4 @@ class Input
             return '';
         }
     }
-
-    
 }

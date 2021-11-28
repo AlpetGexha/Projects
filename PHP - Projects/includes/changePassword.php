@@ -4,7 +4,7 @@ include 'includes/ini.php';
 $x = new User();
 
 if (!$x->isLoggendIn()) {
-    Go::to('index.php');
+    Go::to('index');
 }
 
 if (Input::exist()) {

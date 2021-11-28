@@ -1,8 +1,14 @@
 <?php
 
+use PhpParser\Node\Expr\Cast\String_;
+
+/**
+ * Konfigurimi i variables globale ne ini.php
+ * @return sessin/sessionName
+ * */
 class Config
 {
-    public static function get($path = null)
+    public static function get(String $path = null)
     {
         if ($path) {
             $config = $GLOBALS['config'];
