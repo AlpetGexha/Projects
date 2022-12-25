@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="witdh=device-witdh,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../insta like/css.css">
+	<link rel="stylesheet" type="text/css" href="../insta like/js.js">
+</head>
+
+<body>
+	<div class="post">
+		<img src="https://svgshare.com/i/JtP.svg" alt="Heart icon" class="heart-icon" />
+		<img src="1.jpg" width="900" height="900" alt="insta-post" class="insta-post" />
+		<p class="likes"></p>
+	</div>
+
+
+
+	<script type="text/javascript">
+		const post = document.querySelector('.post');
+		const likesEl = document.querySelector('.likes');
+		const heart = document.querySelector('.heart-icon');
+
+		likesEl.innerText = 'There are no likes so far';
+
+		let counter = 0;
+
+		post.addEventListener('dblclick', () => {
+			counter++;
+
+			if (counter === 1) likesEl.innerText = counter + ' like';
+			else likesEl.innerText = counter + ' likes';
+
+			heart.classList.add('animate-like');
+			setTimeout(() => {
+				heart.classList.remove('animate-like');
+			}, 800);
+		});
+	</script>
+
+</body>
+
+</html>

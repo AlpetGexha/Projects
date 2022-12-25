@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../table/css.css">
+  <link rel="stylesheet" type="text/css" href="../table/js.js">
+</head>
+
+<body>
+  <div class="accordion">
+
+    <div class="tab">
+      <div class="tab-heading">
+        <h2>Tab 1</h2>
+      </div>
+      <div class="tab-content">
+        <p>
+          Mesimi 1
+        </p>
+      </div>
+    </div>
+
+
+    <div class="tab">
+      <div class="tab-heading">
+        <h2>Tab 2 </h2>
+      </div>
+      <div class="tab-content">
+        <p>
+          Mesimi 2
+        </p>
+      </div>
+    </div>
+
+    <div class="tab">
+      <div class="tab-heading" id="2">
+        <h2>Tab 3 </h2>
+      </div>
+      <div class="tab-content">
+        <p>
+          mesimi 3
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+  const tabs = document.querySelectorAll('.tab');
+
+  const openTab = tab => {
+    const content = tab.childNodes[3];
+    const contentHeight = content.scrollHeight;
+    content.style.height = contentHeight + 'px';
+  };
+
+  const closeOthersTabs = (tabs, openTab) => {
+    tabs.forEach(tab => {
+      if (tab !== openTab) {
+        const content = tab.childNodes[3];
+        content.style.height = 0;
+      }
+    });
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      openTab(tab);
+      closeOthersTabs(tabs, tab);
+    });
+  });
+</script>

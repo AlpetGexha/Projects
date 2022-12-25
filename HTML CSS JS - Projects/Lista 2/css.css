@@ -1,0 +1,58 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product-name-container {
+    padding: 20px;
+}
+
+.shop-list-container {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    max-width: 450px;
+    width: 100%;
+    background: #3E4551;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 62px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 15px;
+}
+
+h3 {
+    float: right;
+}
+
+.product-place {
+    padding: 10px;
+    color: white;
+    background: #4B515D;
+    /*border-bottom: solid 5px;
+    border-top: solid 5px;*/
+}
+
+.green {
+    float: right;
+    padding: 3px;
+    color: #00C851;
+
+}
+
+#footer {
+    color: white;
+    padding-top: 30px;
+}
+
+.total-value {
+    background: #81c784;
+    padding: 5px;
+    color: white;
+
+}
